@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Medarbejderinformation</title>
+</head>
+<body>
+<h1>Du kigger på en medarbejder med ID#<span th:text="${medarbejder.id}"></span></h1>
+<form action="/" type="post">
+        <input type="number" name="id" th:value="${medarbejder.id}">
+email:  <input type="email" name="email" th:placeholder="${medarbejder.email}" th:value="${medarbejder.email}" required>
+navn:   <input type="text" name="name" th:placeholder="${medarbejder.name}" th:value="${medarbejder.name}" required><br/>
+kodeord <input type="password" name="password" th:placeholder="${medarbejder.password}" th:value="${medarbejder.password}" required>
+    <input type="submit" name="updateMedarbejder" value="Knappens navn">
+</form>
+</body>
+</html>
