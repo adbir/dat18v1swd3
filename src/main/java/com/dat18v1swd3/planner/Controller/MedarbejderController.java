@@ -39,11 +39,10 @@ public class MedarbejderController {
     public String createMedarbejder(){ return "medarbejder/nymedarbejder.html";}
 
     @PostMapping("/medarbejder")
-    public String updateMedarbejder(@ModelAttribute Medarbejder medarbejder)
+    public String updateMedarbejder(@RequestParam("id") Integer id, @ModelAttribute Medarbejder medarbejder)
     {
-
+        System.out.println(medarbejder.getId());
         System.out.println("Kommer hertil.");
-
         medarbejderRepository.save(medarbejder);
         String redirect = "redirect:/medarbejder?id=" + medarbejder.getId();
         return redirect;
