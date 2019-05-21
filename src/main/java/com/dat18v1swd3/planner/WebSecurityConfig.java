@@ -10,7 +10,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
-@EnableWebSecurity
+@EnableWebSecurity //Hvor fik vi denne snippet fra?
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Override

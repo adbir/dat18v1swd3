@@ -42,10 +42,11 @@ public class MedarbejderController {
     public String updateMedarbejder(@ModelAttribute Medarbejder medarbejder)
     {
 
-        System.out.println(medarbejder.toString());
-        medarbejderRepository.save(medarbejder);
+        System.out.println("Kommer hertil.");
 
-        return "redirect:/nymedarbejder";
+        medarbejderRepository.save(medarbejder);
+        String redirect = "redirect:/medarbejder?id=" + medarbejder.getId();
+        return redirect;
     }
 
 }
