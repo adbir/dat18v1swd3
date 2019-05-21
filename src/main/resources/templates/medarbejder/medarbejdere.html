@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste over alle medarbejdere</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+    <th>Navn</th>
+    <th>Emailadresse</th>
+    <th>Brugerniveau</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="medarbejder : ${medarbejderList}">
+        <td th:text="${medarbejder.name}"></td>
+        <td th:text="${medarbejder.email}"></td>
+        <td th:text="${medarbejder.userlevel}"></td>
+        <td><a th:href="@{'medarbejder?id=' + ${medarbejder.id}}">Vis medarbejder</a></td>
+        <td><a th:href="@{'medarbejder/delete?id=' + ${medarbejder.id}}" name="deleteMedarbejder">Slet medarbejder</a></td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</html>

@@ -6,12 +6,23 @@
 </head>
 <body>
 <h1>Du kigger på en medarbejder med ID#<span th:text="${medarbejder.id}"></span></h1>
-<form action="/" type="post">
-        <input type="number" name="id" th:value="${medarbejder.id}">
-email:  <input type="email" name="email" th:placeholder="${medarbejder.email}" th:value="${medarbejder.email}" required>
+<form method="post">
+        <input type="number" name="id" th:value="${medarbejder.id}"><br/>
+email:  <input type="email" name="email" th:placeholder="${medarbejder.email}" th:value="${medarbejder.email}" required><br/>
 navn:   <input type="text" name="name" th:placeholder="${medarbejder.name}" th:value="${medarbejder.name}" required><br/>
-kodeord <input type="password" name="password" th:placeholder="${medarbejder.password}" th:value="${medarbejder.password}" required>
-    <input type="submit" name="updateMedarbejder" value="Knappens navn">
+kodeord: <input type="password" name="password" id="pw1" th:placeholder="${medarbejder.password}" th:value="${medarbejder.password}" onchange='check_pass();' required><br/>
+gentag kodeord: <input type="password" name="repeatpassword" id="pw2" th:value="${medarbejder.password}" onchange='check_pass();' required> <br/>
+    <input type="submit" id="submit" name="updateMedarbejder" value="opdater">
 </form>
+<script>
+    function check_pass() {
+        if (document.getElementById('pw1').value ==
+            document.getElementById('pw2').value) {
+            document.getElementById('submit').disabled = false;
+        } else {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+</script>
 </body>
 </html>

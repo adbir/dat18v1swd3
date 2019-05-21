@@ -17,7 +17,7 @@ public class Medarbejder {
         this.userlevel = userlevel;
     }
 
-    public Medarbejder(Integer id, String email, String password, String name)
+    public Medarbejder(Integer id, String email, String name, String password)
     {
         this.id = id;
         this.email = email;
@@ -45,6 +45,8 @@ public class Medarbejder {
     public Integer getId() {
         return id;
     }
+
+    public void setId(Integer id){ this.id = id;}
 
     public String getEmail() {
         return email;

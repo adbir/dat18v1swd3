@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class MedarbejderController {
 
@@ -39,13 +41,29 @@ public class MedarbejderController {
     public String createMedarbejder(){ return "medarbejder/nymedarbejder.html";}
 
     @PostMapping("/medarbejder")
-    public String updateMedarbejder(@ModelAttribute Medarbejder medarbejder)
+    public String updateMedarbejder(@RequestParam("id") Integer id, @ModelAttribute Medarbejder medarbejder)
     {
-
-        System.out.println(medarbejder.toString());
+        System.out.println(medarbejder.getId());
+        System.out.println("Kommer hertil.");
         medarbejderRepository.save(medarbejder);
+        String redirect = "redirect:/medarbejder?id=" + medarbejder.getId();
+        return redirect;
+    }
 
-        return "redirect:/nymedarbejder";
+    @GetMapping("/medarbejdere")
+    public String showAllMedarbejdere(Model model)
+    {
+        List<Medarbejder> medarbejderList = (List<Medarbejder>) medarbejderRepository.findAll();
+        model.addAttribute("medarbejderList", medarbejderList);
+
+        return "medarbejder/medarbejdere.html";
+    }
+
+    @GetMapping(value = "medarbejder/delete", params = "id")
+    public String deleteMedarbejder(@RequestParam(value = "id") Integer id)
+    {
+        medarbejderRepository.deleteById(id);
+        return "redirect:/medarbejdere";
     }
 
 }
