@@ -7,7 +7,7 @@
 <body>
 <h1>Du kigger på en medarbejder med ID#<span th:text="${medarbejder.id}"></span></h1>
 <form method="post">
-        <input hidden="true" type="number" name="id" th:value="${medarbejder.id}"><br/>
+        <input type="number" name="id" th:value="${medarbejder.id}"><br/>
 email:  <input type="email" name="email" th:placeholder="${medarbejder.email}" th:value="${medarbejder.email}" required><br/>
 navn:   <input type="text" name="name" th:placeholder="${medarbejder.name}" th:value="${medarbejder.name}" required><br/>
 kodeord: <input type="password" name="password" id="pw1" th:placeholder="${medarbejder.password}" th:value="${medarbejder.password}" onchange='check_pass();' required><br/>

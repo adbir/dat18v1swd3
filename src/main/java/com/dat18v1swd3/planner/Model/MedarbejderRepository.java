@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface MedarbejderRepository extends CrudRepository<Medarbejder, Integer> {
 
     Medarbejder getById(Integer id);
+
 }

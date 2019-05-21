@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class MedarbejderController {
 
@@ -46,6 +48,22 @@ public class MedarbejderController {
         medarbejderRepository.save(medarbejder);
         String redirect = "redirect:/medarbejder?id=" + medarbejder.getId();
         return redirect;
+    }
+
+    @GetMapping("/medarbejdere")
+    public String showAllMedarbejdere(Model model)
+    {
+        List<Medarbejder> medarbejderList = (List<Medarbejder>) medarbejderRepository.findAll();
+        model.addAttribute("medarbejderList", medarbejderList);
+
+        return "medarbejder/medarbejdere.html";
+    }
+
+    @GetMapping(value = "medarbejder/delete", params = "id")
+    public String deleteMedarbejder(@RequestParam(value = "id") Integer id)
+    {
+        medarbejderRepository.deleteById(id);
+        return "redirect:/medarbejdere";
     }
 
 }
