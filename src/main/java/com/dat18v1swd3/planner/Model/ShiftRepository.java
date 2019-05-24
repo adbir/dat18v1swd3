@@ -8,9 +8,8 @@ import java.util.ArrayList;
 
 public interface ShiftRepository extends CrudRepository<Shift, Integer> {
 
-    @Query("Select s from Shift s where week(start)=weeknumber")
+
+    @Query("SELECT s FROM Shift s WHERE WEEK(start) = :weeknumber ORDER BY start ASC")
     ArrayList<Shift> findAllByWeek(@Param("weeknumber") int weeknumber);
 
-
-    ArrayList<Shift> findAllByStartContains(int weeknumber);
 }
