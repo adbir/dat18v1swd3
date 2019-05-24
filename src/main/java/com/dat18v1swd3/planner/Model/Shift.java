@@ -19,7 +19,9 @@ public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date start;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date end;
     private int fk_worker;
 
