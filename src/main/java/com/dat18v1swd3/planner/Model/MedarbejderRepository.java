@@ -8,4 +8,6 @@ public interface MedarbejderRepository extends CrudRepository<Medarbejder, Integ
 
     Medarbejder getById(Integer id);
 
+
+
 }
