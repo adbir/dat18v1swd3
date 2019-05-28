@@ -16,17 +16,20 @@
 
 <table>
     <thead>
-    <th>Dag</th>
-    <th>Starttidspunkt</th>
-    <th>Sluttidspunkt</th>
-    <th>Medarbejder</th>
+        <th>Mandag</th>
+        <th>Tirsdag</th>
+        <th>Onsdag</th>
+        <th>Torsdag</th>
+        <th>Fredag</th>
+        <th>Lørdag</th>
+        <th>Søndag</th>
     </thead>
     <tbody>
-    <tr th:each="shift : ${shifts}">
-        <td th:text="${#dates.dayOfWeekName(shift.start)}"></td>
-        <td th:text="${#dates.format(shift.start,'HH:mm')}"></td>
-        <td th:text="${#dates.format(shift.end,'HH:mm')}"></td>
-        <td th:text="${shift.fk_worker}"></td>
+    <tr th:each="monday : ${monday}">
+        <td th:text="${#dates.dayOfWeekName(monday.start)}"></td>
+        <td th:text="${#dates.format(monday.start,'HH:mm')}"></td>
+        <td th:text="${#dates.format(monday.end,'HH:mm')}"></td>
+        <td th:text="${monday.fk_worker}"></td>
     </tr>
     </tbody>
 </table>

@@ -27,6 +27,12 @@ public class ShiftController {
     public String showSelectedWeek(int week, Model model){
         ArrayList<Shift> shifts = shiftRepository.findAllByWeek(week);
         model.addAttribute("shifts", shifts);
+        ArrayList<Shift> mondayShifts = shiftRepository.findAllByWeekAndDay(week, "monday");
+        ArrayList<Shift> tuesdayShifts = shiftRepository.findAllByWeekAndDay(week, "tuesday");
+        ArrayList<Shift> wednesdayShifts = shiftRepository.findAllByWeekAndDay(week, "wednesday");
+        model.addAttribute("monday", mondayShifts);
+        model.addAttribute("tuesday", tuesdayShifts);
+        model.addAttribute("wednesday", wednesdayShifts);
         return "vagt/vagter.html";
     }
 
