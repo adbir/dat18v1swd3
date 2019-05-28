@@ -1,8 +1,6 @@
 package com.dat18v1swd3.planner.Model;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -11,4 +9,5 @@ import java.util.ArrayList;
 public interface MedarbejderRepository extends CrudRepository<Medarbejder, Integer> {
 
     Medarbejder getById(Integer id);
-    }
+
+}

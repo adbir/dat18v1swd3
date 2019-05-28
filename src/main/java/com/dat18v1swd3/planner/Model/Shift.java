@@ -3,6 +3,7 @@ package com.dat18v1swd3.planner.Model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "shift")
@@ -25,8 +26,8 @@ public class Shift {
     private Date end;
     private int fk_worker;
 
-    @OneToOne()
-    @JoinColumn(name="id")
+    @ManyToOne()
+    @JoinColumn(name = "fk_worker", insertable = false, updatable = false) //kigger på fk_worker i shift tabellen or sammenligner med medarbejder.id
     private Medarbejder medarbejder;
 
     public Integer getId() {

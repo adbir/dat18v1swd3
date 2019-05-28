@@ -1,6 +1,8 @@
 package com.dat18v1swd3.planner.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "medarbejder")
@@ -32,9 +34,9 @@ public class Medarbejder {
     private String password;
     private String name;
 
-    @OneToOne()
-    @JoinColumn(name="fk_worker")
-    private Shift shift;
+
+    @OneToMany(mappedBy = "medarbejder", cascade = CascadeType.ALL)
+    private List<Shift> shift;
 
     public Integer getUserlevel() {
         return userlevel;
