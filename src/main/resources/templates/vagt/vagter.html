@@ -8,29 +8,87 @@
 
 <form method="post">
     <select name="week">
+        <option value="19">Uge 19</option>
         <option value="20">Uge 20</option>
         <option value="21">Uge 21</option>
+        <option value="22">Uge 22</option>
     </select><br/>
     <input type="submit" name="/showSelectedWeek" value="Vælg uge"><br/>
 </form>
 
 <table>
     <thead>
-        <th>Mandag</th>
-        <th>Tirsdag</th>
-        <th>Onsdag</th>
-        <th>Torsdag</th>
-        <th>Fredag</th>
-        <th>Lørdag</th>
-        <th>Søndag</th>
+        <tr>
+            <th>Mandag</th>
+            <th>Tirsdag</th>
+            <th>Onsdag</th>
+            <th>Torsdag</th>
+            <th>Fredag</th>
+            <th>Lørdag</th>
+            <th>Søndag</th>
+        </tr>
     </thead>
     <tbody>
-    <tr th:each="monday : ${monday}">
-        <td th:text="${#dates.dayOfWeekName(monday.start)}"></td>
-        <td th:text="${#dates.format(monday.start,'HH:mm')}"></td>
-        <td th:text="${#dates.format(monday.end,'HH:mm')}"></td>
-        <td th:text="${monday.fk_worker}"></td>
+    <tr>
+        <td id="mandag">
+            <div th:each="monday : ${monday}">
+                <span th:text="${monday.fk_worker}"></span><br/>
+                <span th:text="${#dates.format(monday.start,'HH:mm')}"></span>-
+                <span th:text="${#dates.format(monday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+        <td id="tirsdag">
+            <div th:each="tuesday : ${tuesday}">
+                    <span th:text="${tuesday.fk_worker}"></span><br/>
+                    <span th:text="${#dates.format(tuesday.start,'HH:mm')}"></span>-
+                    <span th:text="${#dates.format(tuesday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+        <td id="onsdag">
+            <div th:each="wednesday: ${wednesday}">
+                <span th:text="${wednesday.fk_worker}"></span><br/>
+                <span th:text="${#dates.format(wednesday.start,'HH:mm')}"></span>-
+                <span th:text="${#dates.format(wednesday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+        <td id="torsdag">
+            <div th:each="thursday : ${friday}">
+                <span th:text="${thursday.fk_worker}"></span><br/>
+                <span th:text="${#dates.format(thursday.start,'HH:mm')}"></span>-
+                <span th:text="${#dates.format(thursday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+        <td id="fredag">
+            <div th:each="friday : ${friday}">
+                <span th:text="${friday.fk_worker}"></span><br/>
+                <span th:text="${#dates.format(friday.start,'HH:mm')}"></span>-
+                <span th:text="${#dates.format(friday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+        <td id="lordag">
+            <div th:each="saturday : ${saturday}">
+                <span th:text="${saturday.fk_worker}"></span><br/>
+                <span th:text="${#dates.format(saturday.start,'HH:mm')}"></span>-
+                <span th:text="${#dates.format(saturday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+        <td id="sondag">
+            <div th:each="sunday : ${sunday}">
+                <span th:text="${sunday.fk_worker}"></span><br/>
+                <span th:text="${#dates.format(sunday.start,'HH:mm')}"></span>-
+                <span th:text="${#dates.format(sunday.end,'HH:mm')}"></span><br/>
+                <hr>
+            </div>
+        </td>
+
     </tr>
+
     </tbody>
 </table>
 

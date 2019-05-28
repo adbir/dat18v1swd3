@@ -25,6 +25,10 @@ public class Shift {
     private Date end;
     private int fk_worker;
 
+    @OneToOne()
+    @JoinColumn(name="id")
+    private Medarbejder medarbejder;
+
     public Integer getId() {
         return id;
     }

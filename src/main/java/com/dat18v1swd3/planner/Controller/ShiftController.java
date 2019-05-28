@@ -30,9 +30,18 @@ public class ShiftController {
         ArrayList<Shift> mondayShifts = shiftRepository.findAllByWeekAndDay(week, "monday");
         ArrayList<Shift> tuesdayShifts = shiftRepository.findAllByWeekAndDay(week, "tuesday");
         ArrayList<Shift> wednesdayShifts = shiftRepository.findAllByWeekAndDay(week, "wednesday");
+        ArrayList<Shift> thursdayShifts = shiftRepository.findAllByWeekAndDay(week, "thursday");
+        ArrayList<Shift> fridayShifts = shiftRepository.findAllByWeekAndDay(week, "friday");
+        ArrayList<Shift> saturdayShifts = shiftRepository.findAllByWeekAndDay(week, "saturday");
+        ArrayList<Shift> sundayShifts = shiftRepository.findAllByWeekAndDay(week, "sunday");
+
         model.addAttribute("monday", mondayShifts);
         model.addAttribute("tuesday", tuesdayShifts);
         model.addAttribute("wednesday", wednesdayShifts);
+        model.addAttribute("thursday", thursdayShifts);
+        model.addAttribute("friday", fridayShifts);
+        model.addAttribute("saturday", saturdayShifts);
+        model.addAttribute("sunday", sundayShifts);
         return "vagt/vagter.html";
     }
 

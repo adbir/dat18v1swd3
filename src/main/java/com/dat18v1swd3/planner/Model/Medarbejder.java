@@ -32,6 +32,10 @@ public class Medarbejder {
     private String password;
     private String name;
 
+    @OneToOne()
+    @JoinColumn(name="fk_worker")
+    private Shift shift;
+
     public Integer getUserlevel() {
         return userlevel;
     }
