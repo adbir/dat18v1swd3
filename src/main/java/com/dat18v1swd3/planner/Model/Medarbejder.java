@@ -1,12 +1,17 @@
 package com.dat18v1swd3.planner.Model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "medarbejder")
-public class Medarbejder {
+public class Medarbejder implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     public Medarbejder(){
 
@@ -35,8 +40,10 @@ public class Medarbejder {
     private String name;
 
 
-    @OneToMany(mappedBy = "medarbejder", cascade = CascadeType.ALL)
-    private List<Shift> shift;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_worker", insertable = false, updatable = false)
+    @Fetch(FetchMode.JOIN)
+    private Shift shift;
 
     public Integer getUserlevel() {
         return userlevel;
