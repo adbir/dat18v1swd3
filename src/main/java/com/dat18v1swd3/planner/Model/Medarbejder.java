@@ -9,13 +9,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "medarbejder")
-public class Medarbejder implements Serializable {
+public class Medarbejder {
 
-    private static final long serialVersionUID = 1L;
-
-    public Medarbejder(){
-
-    }
+    public Medarbejder(){ }
 
     public Medarbejder(String email, String password, String name, Integer userlevel) {
         this.email = email;
@@ -32,18 +28,31 @@ public class Medarbejder implements Serializable {
         this.name = name;
     }
 
+    public Medarbejder(Integer id, String email, String name, String password, List<Shift> shift)
+    {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.shift = shift;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String email;
     private String password;
     private String name;
+    @OneToMany(mappedBy = "medarbejder")
+    private List<Shift> shift;
 
+    public List<Shift> getShift() {
+        return shift;
+    }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_worker", insertable = false, updatable = false)
-    @Fetch(FetchMode.JOIN)
-    private Shift shift;
+    public void setShift(List<Shift> shift) {
+        this.shift = shift;
+    }
 
     public Integer getUserlevel() {
         return userlevel;
