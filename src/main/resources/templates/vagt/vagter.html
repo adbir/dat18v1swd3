@@ -55,7 +55,7 @@
             </div>
         </td>
         <td id="torsdag">
-            <div th:each="thursday : ${friday}">
+            <div th:each="thursday : ${thursday}">
                 <span th:text="${thursday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(thursday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(thursday.end,'HH:mm')}"></span><br/>
