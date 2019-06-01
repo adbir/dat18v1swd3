@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public interface MedarbejderRepository extends JpaRepository<Medarbejder, Integer> {
+public interface WorkerRepository extends JpaRepository<Worker, Integer> {
 
-    Medarbejder getById(Integer id);
+    Worker getById(Integer id);
 
-    ArrayList<Medarbejder> findAll();
+    ArrayList<Worker> findAll();
 }

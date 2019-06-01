@@ -8,19 +8,19 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "medarbejder")
-public class Medarbejder {
+@Table(name = "worker")
+public class Worker {
 
-    public Medarbejder(){ }
+    public Worker(){ }
 
-    public Medarbejder(String email, String password, String name, Integer userlevel) {
+    public Worker(String email, String password, String name, Integer userlevel) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.userlevel = userlevel;
     }
 
-    public Medarbejder(Integer id, String email, String name, String password)
+    public Worker(Integer id, String email, String name, String password)
     {
         this.id = id;
         this.email = email;
@@ -28,7 +28,7 @@ public class Medarbejder {
         this.name = name;
     }
 
-    public Medarbejder(Integer id, String email, String name, String password, List<Shift> shift)
+    public Worker(Integer id, String email, String name, String password, List<Shift> shift)
     {
         this.id = id;
         this.email = email;
@@ -43,7 +43,7 @@ public class Medarbejder {
     private String email;
     private String password;
     private String name;
-    @OneToMany(mappedBy = "medarbejder")
+    @OneToMany(mappedBy = "worker")
     private List<Shift> shift;
 
     public List<Shift> getShift() {

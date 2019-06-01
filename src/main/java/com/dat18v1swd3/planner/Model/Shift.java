@@ -1,8 +1,5 @@
 package com.dat18v1swd3.planner.Model;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -22,14 +19,14 @@ public class Shift {
     private Integer fk_worker;
     @ManyToOne
     @JoinColumn(name = "fk_worker", insertable = false, updatable = false)
-    private Medarbejder medarbejder;
+    private Worker worker;
 
-    public Shift(Integer id, Date start, Date end, Medarbejder medarbejder)
+    public Shift(Integer id, Date start, Date end, Worker worker)
     {
         this.id = id;
         this.start = start;
         this.end = end;
-        this.medarbejder = medarbejder;
+        this.worker = worker;
     }
 
     public void setId(Integer id) {
@@ -64,11 +61,11 @@ public class Shift {
         this.fk_worker = fk_worker;
     }
 
-    public Medarbejder getMedarbejder() {
-        return medarbejder;
+    public Worker getWorker() {
+        return worker;
     }
 
-    public void setMedarbejder(Medarbejder medarbejder) {
-        this.medarbejder = medarbejder;
+    public void setWorker(Worker worker) {
+        this.worker = worker;
     }
 }

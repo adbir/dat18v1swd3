@@ -15,12 +15,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="medarbejder : ${medarbejderList}">
-        <td th:text="${medarbejder.name}"></td>
-        <td th:text="${medarbejder.email}"></td>
-        <td th:text="${medarbejder.userlevel}"></td>
-        <td><a th:href="@{'medarbejder?id=' + ${medarbejder.id}}">Vis medarbejder</a></td>
-        <td><a th:href="@{'medarbejder/delete?id=' + ${medarbejder.id}}" name="deleteMedarbejder">Slet medarbejder</a></td>
+    <tr th:each="worker : ${workerList}">
+        <td th:text="${worker.name}"></td>
+        <td th:text="${worker.email}"></td>
+        <td th:text="${worker.userlevel}"></td>
+        <td><a th:href="@{'worker?id=' + ${worker.id}}">Vis worker</a></td>
+        <td><a th:href="@{'worker/delete?id=' + ${worker.id}}" name="deleteMedarbejder">Slet worker</a></td>
     </tr>
     </tbody>
 

@@ -32,7 +32,7 @@
     <tr>
         <td id="mandag">
             <div th:each="monday : ${monday}">
-                <span th:text="${monday.medarbejder.name}"></span><br/>
+                <span th:text="${monday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(monday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(monday.end,'HH:mm')}"></span><br/>
                 <hr>
@@ -40,7 +40,7 @@
         </td>
         <td id="tirsdag">
             <div th:each="tuesday : ${tuesday}">
-                    <span th:text="${tuesday.medarbejder.name}"></span><br/>
+                    <span th:text="${tuesday.worker.name}"></span><br/>
                     <span th:text="${#dates.format(tuesday.start,'HH:mm')}"></span>-
                     <span th:text="${#dates.format(tuesday.end,'HH:mm')}"></span><br/>
                 <hr>
@@ -48,7 +48,7 @@
         </td>
         <td id="onsdag">
             <div th:each="wednesday: ${wednesday}">
-                <span th:text="${wednesday.medarbejder.name}"></span><br/>
+                <span th:text="${wednesday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(wednesday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(wednesday.end,'HH:mm')}"></span><br/>
                 <hr>
@@ -56,7 +56,7 @@
         </td>
         <td id="torsdag">
             <div th:each="thursday : ${friday}">
-                <span th:text="${thursday.medarbejder.name}"></span><br/>
+                <span th:text="${thursday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(thursday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(thursday.end,'HH:mm')}"></span><br/>
                 <hr>
@@ -64,7 +64,7 @@
         </td>
         <td id="fredag">
             <div th:each="friday : ${friday}">
-                <span th:text="${friday.medarbejder.name}"></span><br/>
+                <span th:text="${friday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(friday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(friday.end,'HH:mm')}"></span><br/>
                 <hr>
@@ -72,7 +72,7 @@
         </td>
         <td id="lordag">
             <div th:each="saturday : ${saturday}">
-                <span th:text="${saturday.medarbejder.name}"></span><br/>
+                <span th:text="${saturday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(saturday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(saturday.end,'HH:mm')}"></span><br/>
                 <hr>
@@ -80,7 +80,7 @@
         </td>
         <td id="sondag">
             <div th:each="sunday : ${sunday}">
-                <span th:text="${sunday.medarbejder.name}"></span><br/>
+                <span th:text="${sunday.worker.name}"></span><br/>
                 <span th:text="${#dates.format(sunday.start,'HH:mm')}"></span>-
                 <span th:text="${#dates.format(sunday.end,'HH:mm')}"></span><br/>
                 <hr>

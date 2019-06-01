@@ -1,7 +1,7 @@
 package com.dat18v1swd3.planner.Controller;
 
-import com.dat18v1swd3.planner.Model.Medarbejder;
-import com.dat18v1swd3.planner.Model.MedarbejderRepository;
+import com.dat18v1swd3.planner.Model.Worker;
+import com.dat18v1swd3.planner.Model.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class MedarbejderController {
+public class WorkerController {
 
     @Autowired
-    private MedarbejderRepository medarbejderRepository;
+    private WorkerRepository workerRepository;
 
     @GetMapping(name = "/")
     public String showIndex(){return "index.html";}
@@ -24,15 +24,15 @@ public class MedarbejderController {
     @GetMapping("/medarbejder")
     public String showMedarbejder(@RequestParam("id") Integer id, Model model)
     {
-        Medarbejder modelMedarbejder = medarbejderRepository.getById(id);
-        model.addAttribute("medarbejder", modelMedarbejder);
+        Worker modelWorker = workerRepository.getById(id);
+        model.addAttribute("medarbejder", modelWorker);
         return "medarbejder/medarbejder.html";
     }
 
     @PostMapping("/nymedarbejder")
-    public String createMedarbejder(@ModelAttribute Medarbejder medarbejder)
+    public String createMedarbejder(@ModelAttribute Worker worker)
     {
-        medarbejderRepository.save(medarbejder);
+        workerRepository.save(worker);
 
         return "index.html";
     }
@@ -41,20 +41,18 @@ public class MedarbejderController {
     public String createMedarbejder(){ return "medarbejder/nymedarbejder.html";}
 
     @PostMapping("/medarbejder")
-    public String updateMedarbejder(@RequestParam("id") Integer id, @ModelAttribute Medarbejder medarbejder)
+    public String updateMedarbejder(@RequestParam("id") Integer id, @ModelAttribute Worker worker)
     {
-        System.out.println(medarbejder.getId());
-        System.out.println("Kommer hertil.");
-        medarbejderRepository.save(medarbejder);
-        String redirect = "redirect:/medarbejder?id=" + medarbejder.getId();
+        workerRepository.save(worker);
+        String redirect = "redirect:/worker?id=" + worker.getId();
         return redirect;
     }
 
     @GetMapping("/medarbejdere")
     public String showAllMedarbejdere(Model model)
     {
-        List<Medarbejder> medarbejderList = (List<Medarbejder>) medarbejderRepository.findAll();
-        model.addAttribute("medarbejderList", medarbejderList);
+        List<Worker> workerList = (List<Worker>) workerRepository.findAll();
+        model.addAttribute("medarbejderList", workerList);
 
         return "medarbejder/medarbejdere.html";
     }
@@ -62,7 +60,7 @@ public class MedarbejderController {
     @GetMapping(value = "medarbejder/delete", params = "id")
     public String deleteMedarbejder(@RequestParam(value = "id") Integer id)
     {
-        medarbejderRepository.deleteById(id);
+        workerRepository.deleteById(id);
         return "redirect:/medarbejdere";
     }
 
