@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <http auto-config="true" security="none">
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Opret ny worker</title>
+    <th:block th:include="fragment/header :: header"></th:block>
 </head>
 <body>
-
+<th:block th:include="fragment/nav :: nav"></th:block>
 <form action="/nymedarbejder" method="post">
     <label>Emailadresse</label>
     <input type="email" name="email" required><br/>
