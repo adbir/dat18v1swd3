@@ -25,7 +25,7 @@ public class WorkerController {
     public String showMedarbejder(@RequestParam("id") Integer id, Model model)
     {
         Worker modelWorker = workerRepository.getById(id);
-        model.addAttribute("medarbejder", modelWorker);
+        model.addAttribute("worker", modelWorker);
         return "medarbejder/medarbejder.html";
     }
 
@@ -44,7 +44,7 @@ public class WorkerController {
     public String updateMedarbejder(@RequestParam("id") Integer id, @ModelAttribute Worker worker)
     {
         workerRepository.save(worker);
-        String redirect = "redirect:/worker?id=" + worker.getId();
+        String redirect = "redirect:/medarbejder?id=" + worker.getId();
         return redirect;
     }
 
@@ -52,7 +52,7 @@ public class WorkerController {
     public String showAllMedarbejdere(Model model)
     {
         List<Worker> workerList = (List<Worker>) workerRepository.findAll();
-        model.addAttribute("medarbejderList", workerList);
+        model.addAttribute("workerList", workerList);
 
         return "medarbejder/medarbejdere.html";
     }

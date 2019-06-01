@@ -6,12 +6,12 @@
 </head>
 <body>
     <div th:fragment="nav">
-        <nav>
-            <ul>
-                <li><a href="http://localhost:5505/index.html">Forside</a></li>
-                <li><a href="http://localhost:5505/vagter">Se vagtplan</a></li>
-                <li><a href="http://localhost:5505/medarbejdere">Se en oversigt over medarbejdere</a></li>
-                <li><a href="http://localhost:5505/nymedarbejder">Opret en ny medarbejder</a></li>
+        <nav class="nav flex-column">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="http://localhost:5505/index.html" class="nav-link">Forside</a></li>
+                <li class="nav-item"><a href="http://localhost:5505/vagter" class="nav-link">Se vagtplan</a></li>
+                <li class="nav-item"><a href="http://localhost:5505/medarbejdere" class="nav-link">Se en oversigt over medarbejdere</a></li>
+                <li class="nav-item"><a href="http://localhost:5505/nymedarbejder" class="nav-link">Opret en ny medarbejder</a></li>
             </ul>
         </nav>
 </div>
