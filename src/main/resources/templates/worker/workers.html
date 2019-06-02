@@ -21,7 +21,7 @@
         <td th:text="${worker.email}"></td>
         <td th:text="${worker.userlevel}"></td>
         <td><a th:href="@{'medarbejder?id=' + ${worker.id}}">Vis worker</a></td>
-        <td><a th:href="@{'medarbejder/delete?id=' + ${worker.id}}" name="deleteMedarbejder">Slet worker</a></td>
+        <td><a th:href="@{'delete?id=' + ${worker.id}}" name="deleteWorker">Slet worker</a></td>
     </tr>
     </tbody>
 

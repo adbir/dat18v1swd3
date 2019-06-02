@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public interface ShiftRepository extends JpaRepository<Shift, Integer> {
 
 
-    @Query("SELECT s FROM Shifts s WHERE WEEK(start) = :weeknumber ORDER BY start ASC")
+    @Query("SELECT s FROM Shift s WHERE WEEK(start) = :weeknumber ORDER BY start ASC")
     ArrayList<Shift> findAllByWeek(@Param("weeknumber") Integer weeknumber);
 
-    @Query("SELECT s FROM Shifts s WHERE WEEK(start) = :weeknumber AND DAYNAME(start) = :weekday ORDER BY start ASC")
+    @Query("SELECT s FROM Shift s WHERE WEEK(start) = :weeknumber AND DAYNAME(start) = :weekday ORDER BY start ASC")
     ArrayList<Shift> findAllByWeekAndDay(@Param("weeknumber") Integer weeknumber, @Param("weekday") String weekday);
 
 

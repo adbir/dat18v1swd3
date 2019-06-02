@@ -19,7 +19,7 @@ public class ShiftController {
     public String showAllShifts(Model model){
         ArrayList<Shift> shifts = (ArrayList<Shift>) shiftRepository.findAll();
         model.addAttribute("shifts", shifts);
-        return "vagt/vagter.html";
+        return "shift/shifts.html";
     }
 
     @PostMapping("vagter")
@@ -41,7 +41,7 @@ public class ShiftController {
         ArrayList<Shift> sundayShifts = shiftRepository.findAllByWeekAndDay(week, "sunday");
         model.addAttribute("sunday", sundayShifts);
 
-        return "vagt/vagter.html";
+        return "shift/shifts.html";
     }
 
 }

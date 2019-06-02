@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "Workers")
+@Table(name = "workers")
 public class Worker {
 
     public Worker(){ }
@@ -43,7 +43,7 @@ public class Worker {
     private String email;
     private String password;
     private String name;
-    @OneToMany(mappedBy = "Workers")
+    @OneToMany(mappedBy = "worker")
     private List<Shift> shift;
 
     public List<Shift> getShift() {

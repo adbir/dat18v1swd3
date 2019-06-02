@@ -22,43 +22,42 @@ public class WorkerController {
     public String showIndex(){return "index.html";}
 
     @GetMapping("/medarbejder")
-    public String showMedarbejder(@RequestParam("id") Integer id, Model model)
+    public String showWorker(@RequestParam("id") Integer id, Model model)
     {
         Worker modelWorker = workerRepository.getById(id);
         model.addAttribute("worker", modelWorker);
-        return "medarbejder/medarbejder.html";
+        return "worker/worker.html";
     }
 
     @PostMapping("/nymedarbejder")
-    public String createMedarbejder(@ModelAttribute Worker worker)
+    public String createWorker(@ModelAttribute Worker worker)
     {
         workerRepository.save(worker);
 
-        return "index.html";
+        return "redirect:/medarbejdere";
+    }
+
+    @PostMapping("/medarbejder")
+    public String updateWorker(@RequestParam("id") Integer id, @ModelAttribute Worker worker)
+    {
+        workerRepository.save(worker);
+        return "/medarbejder?id=" + worker.getId();
     }
 
     @GetMapping("/nymedarbejder")
-    public String createMedarbejder(){ return "medarbejder/nymedarbejder.html";}
-
-    @PostMapping("/medarbejder")
-    public String updateMedarbejder(@RequestParam("id") Integer id, @ModelAttribute Worker worker)
-    {
-        workerRepository.save(worker);
-        String redirect = "redirect:/medarbejder?id=" + worker.getId();
-        return redirect;
-    }
+    public String newWorker(){return "worker/newworker.html";}
 
     @GetMapping("/medarbejdere")
-    public String showAllMedarbejdere(Model model)
+    public String showAllWorkers(Model model)
     {
-        List<Worker> workerList = (List<Worker>) workerRepository.findAll();
+        List<Worker> workerList = workerRepository.findAll();
         model.addAttribute("workerList", workerList);
 
-        return "medarbejder/medarbejdere.html";
+        return "worker/workers.html";
     }
 
-    @GetMapping(value = "medarbejder/delete", params = "id")
-    public String deleteMedarbejder(@RequestParam(value = "id") Integer id)
+    @GetMapping(value = "delete", params = "id")
+    public String deleteWorker(@RequestParam(value = "id") Integer id)
     {
         workerRepository.deleteById(id);
         return "redirect:/medarbejdere";

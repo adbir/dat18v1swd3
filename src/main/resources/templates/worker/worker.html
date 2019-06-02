@@ -9,12 +9,12 @@
 <th:block th:include="fragment/nav :: nav"></th:block>
 <h1>Du kigger på en worker med ID#<span th:text="${worker.id}"></span></h1>
 <form method="post">
-        <input type="number" name="id" th:value="${worker.id}"><br/>
+        <input type="hidden" name="id" th:value="${worker.id}"><br/>
 email:  <input type="email" name="email" th:placeholder="${worker.email}" th:value="${worker.email}" required><br/>
 navn:   <input type="text" name="name" th:placeholder="${worker.name}" th:value="${worker.name}" required><br/>
 kodeord: <input type="password" name="password" id="pw1" th:placeholder="${worker.password}" th:value="${worker.password}" onchange='check_pass();' required><br/>
 gentag kodeord: <input type="password" name="repeatpassword" id="pw2" th:value="${worker.password}" onchange='check_pass();' required> <br/>
-    <input type="submit" id="submit" name="updateMedarbejder" value="opdater">
+    <input type="submit" id="submit" name="updateWorker" value="opdater">
 </form>
 <script>
     function check_pass() {
